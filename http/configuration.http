@@ -1,0 +1,53 @@
+@host=http://localhost:8080/hayagriva
+
+### download dmn ###
+GET {{host}}/configuration http/1.1
+
+### execute with full trace ###
+POST {{host}}/configuration/dmnresult http/1.1
+Content-Type: application/json
+
+{
+    "context": {
+        "submittedDate": "2021-04-14"
+    }
+}
+
+### before 5/25 ###
+POST {{host}}/configuration http/1.1
+Content-Type: application/json
+
+{
+    "context": {
+        "submittedDate": "2021-04-14"
+    }
+}
+
+### after 5/25 ###
+POST {{host}}/configuration http/1.1
+Content-Type: application/json
+
+{
+    "context": {
+        "submittedDate": "2021-09-23"
+    }
+}
+
+### pick system date ###
+POST {{host}}/configuration http/1.1
+Content-Type: application/json
+
+{
+    "context": {
+    }
+}
+
+### decision service ###
+POST {{host}}/configuration/getAnticipatedREOSalesProceedsAdjustmentFactor http/1.1
+Content-Type: application/json
+
+{
+    "context": {
+        "submittedDate": "2021-04-14"
+    }
+}
