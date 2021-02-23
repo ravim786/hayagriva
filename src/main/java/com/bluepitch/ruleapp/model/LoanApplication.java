@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class LoanApplication {
-    private SubjectProperty subjectLoan;
+    private SubjectProperty subjectLoan;    
 }
